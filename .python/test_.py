@@ -125,5 +125,5 @@ def test_misc():
     assert artcode_i(WWF_input) == WWF_output 
     assert artcode_r(WWF_input) == WWF_output 
     assert artcode_i(APPLE_input) == APPLE_output 
-    assert artcode_r(APPLE_input) == APPLE_output 
+    assert artcode_r(APPLE_input) == APPLE_output
 
