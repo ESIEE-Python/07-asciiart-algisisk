@@ -49,9 +49,6 @@ def artcode_r(s):
     while index < len(s) and s[0] == s[index]:
         compteur += 1
         index += 1
-    #artcode_r(s[index:])
-    #return tab.append((s[0], compteur))
-    #tab.append((s[0], compteur))
     return [(s[0],compteur)] + artcode_r(s[index:])
 
 #### Fonction principale
