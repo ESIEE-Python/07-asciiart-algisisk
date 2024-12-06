@@ -1,18 +1,19 @@
-#### Imports et définition des variables globales
-
+"""
+Module pour encoder une chaîne de caractères en une liste de tuples
+indiquant chaque caractère et son nombre d'occurrences consécutives.
+"""
 import sys
 
-#### Fonctions secondaires
-
-
 def artcode_i(s):
-    """retourne la liste de tuples encodant une chaîne de caractères passée en argument selon un algorithme itératif
+    """
+    Retourne la liste de tuples encodant une chaîne de caractères
+    passée en argument selon un algorithme itératif.
 
     Args:
-        s (str): la chaîne de caractères à encoder
+        s (str): la chaîne de caractères à encoder.
 
     Returns:
-        list: la liste des tuples (caractère, nombre d'occurences)
+        list: liste de tuples (caractère, nombre d'occurrences).
     """
     tab = []
     index_d = 0
@@ -28,36 +29,39 @@ def artcode_i(s):
 
 
 def artcode_r(s):
-    """retourne la liste de tuples encodant une chaîne de caractères passée en argument selon un algorithme récursif
+    """
+    Retourne la liste de tuples encodant une chaîne de caractères
+    passée en argument selon un algorithme récursif.
 
     Args:
-        s (str): la chaîne de caractères à encoder
+        s (str): la chaîne de caractères à encoder.
 
     Returns:
-        list: la liste des tuples (caractère, nombre d'occurences)
+        list: liste de tuples (caractère, nombre d'occurrences).
     """
-    
-    # votre code ici
+    if len(s) == 0:
+        return []
 
-    # cas de base
-    # recherche nombre de caractères identiques au premier
-    # appel récursif
-    #tab = []
-    if len(s) == 0: return[];
-    compteur = 1
     index = 1
     while index < len(s) and s[0] == s[index]:
-        compteur += 1
         index += 1
-    return [(s[0],compteur)] + artcode_r(s[index:])
 
-#### Fonction principale
+    # Appel récursif sur la sous-chaîne restante
+    return [(s[0], index)] + artcode_r(s[index:])
 
 
 def main():
-    sys.setrecursionlimit(10**9)
-    print(artcode_i('MMMMaaacXolloMM'))
-    print(artcode_r('MMMMaaacXolloMM'))
+    """
+    Fonction principale pour tester les encodages itératif et récursif.
+    """
+    # Augmenter raisonnablement la limite de récursion
+    sys.setrecursionlimit(1100)
+
+    chaine = "MMMMaaacXo\nlloMM"
+
+    print("Encodage itératif :", artcode_i(chaine))
+    print("Encodage récursif :", artcode_r(chaine))
+
 
 if __name__ == "__main__":
     main()
