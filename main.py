@@ -4,6 +4,9 @@ indiquant chaque caractère et son nombre d'occurrences consécutives.
 """
 import sys
 
+# Augmenter raisonnablement la limite de récursion
+sys.setrecursionlimit(1100)
+
 def artcode_i(s):
     """
     Retourne la liste de tuples encodant une chaîne de caractères
@@ -54,8 +57,7 @@ def main():
     """
     Fonction principale pour tester les encodages itératif et récursif.
     """
-    # Augmenter raisonnablement la limite de récursion
-    sys.setrecursionlimit(1100)
+
 
     chaine = "MMMMaaacXo\nlloMM"
 
